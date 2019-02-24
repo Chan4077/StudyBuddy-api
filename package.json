@@ -1,0 +1,28 @@
+{
+  "name": "studybuddy-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chan4077/StudyBuddy-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chan4077/StudyBuddy-api/issues"
+  },
+  "homepage": "https://github.com/Chan4077/StudyBuddy-api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "firebase-admin": "^7.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "nodemon": "^1.18.10"
+  }
+}
