@@ -1,9 +1,14 @@
 var express = require('express');
+var responseTime = require('response-time');
 var admin = require('firebase-admin');
 var port = process.env.PORT || 3000;
 var app = express();
 // This can be found from the service accounts tab in your Firebase app settings
 var serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT || require('./service-account-key.json');
+
+// Adds the X-Response-Time header to indicate how long a request took
+// See https://github.com/expressjs/response-time for more info
+app.use(responseTime());
 
 // Initialise a Firebase Admin SDK app
 admin.initializeApp({
