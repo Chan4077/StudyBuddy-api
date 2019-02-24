@@ -7,7 +7,7 @@ var serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT || require('./service-
 
 // Initialise a Firebase Admin SDK app
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(JSON.parse(serviceAccount)),
   databaseURL: 'https://studybuddy-e5f46.firebaseio.com'
 });
 
