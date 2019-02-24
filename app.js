@@ -3,7 +3,7 @@ var admin = require('firebase-admin');
 var port = process.env.PORT || 3000;
 var app = express();
 // This can be found from the service accounts tab in your Firebase app settings
-var serviceAccount = require('./service-account-key.json');
+var serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT || require('./service-account-key.json');
 
 // Initialise a Firebase Admin SDK app
 admin.initializeApp({
