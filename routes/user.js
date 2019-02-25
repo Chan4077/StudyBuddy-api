@@ -29,7 +29,7 @@ module.exports = function (app, admin, throwJsonError) {
       }
     })
     .delete((req, res) => {
-      if ('id' in req.query) {
+      /* if ('id' in req.query) {
         admin.auth()
           .deleteUser(req.query['id'])
           .then(() => {
@@ -38,6 +38,14 @@ module.exports = function (app, admin, throwJsonError) {
           .catch(result => {
             return throwJsonError(result, res);
           });
-      }
+      } */
+      res
+        .status(403)
+        .json({
+          error: {
+            code: 403,
+            message: 'DELETE support is currently disabled due to a potential flaw where anyone could specify a DELETE request even if they are not the user.'
+          }
+        });
     });
 };

@@ -38,6 +38,8 @@ Parameter | Description
 
 Deletes a user from the list of authenticated users.
 
+**Currently disabled for now to fix a potential flaw where anyone could delete a user without explicit authentication.**
+
 ### Query parameters
 
 Parameter | Description | Required
@@ -48,7 +50,7 @@ Parameter | Description | Required
 
 Gets the uptime of the NodeJS server.
 
-Returns a number.
+Returns the current uptime in seconds as a number.
 
 ## `GET` /v1/apis
 
