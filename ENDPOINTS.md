@@ -38,7 +38,7 @@ Parameter | Description
 
 Deletes a user from the list of authenticated users.
 
-**Currently disabled for now to fix a potential flaw where anyone could delete a user without explicit authentication.**
+**Currently disabled for now due to a potential security flaw where anyone could delete a user without the user acknowledging.**
 
 ### Query parameters
 

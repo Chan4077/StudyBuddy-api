@@ -44,7 +44,7 @@ module.exports = function (app, admin, throwJsonError) {
         .json({
           error: {
             code: 403,
-            message: 'DELETE support is currently disabled due to a potential flaw where anyone could specify a DELETE request even if they are not the user.'
+            message: 'DELETE support is currently disabled due to a potential security flaw where anyone could delete a user without the user acknowledging.'
           }
         });
     });
