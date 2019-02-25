@@ -6,7 +6,7 @@ var admin = require('firebase-admin');
 var port = process.env.PORT || 3000;
 var app = express();
 // This can be found from the service accounts tab in your Firebase app settings
-var serviceAccount = require('./service-account-key.json') || JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+var serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT) : require('./service-account-key.json');
 
 // Sets the document title
 // See https://stackoverflow.com/a/54356269/6782707 for more info
