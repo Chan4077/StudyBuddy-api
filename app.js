@@ -17,7 +17,7 @@ app.set('title', 'StudyBuddy API');
 app.use(responseTime());
 
 // Add a favicon
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // Initialise a Firebase Admin SDK app
 admin.initializeApp({
