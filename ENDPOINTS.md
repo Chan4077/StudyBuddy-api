@@ -51,9 +51,3 @@ Parameter | Description | Required
 Gets the uptime of the NodeJS server.
 
 Returns the current uptime in seconds as a number.
-
-## `GET` /v1/apis
-
-Gets all API endpoints.
-
-Returns an array of API endpoints.

@@ -2,9 +2,14 @@
   "name": "studybuddy-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
-    "start": "node app.js"
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "copy-assets": "cp -r public dist",
+    "prestart": "npm run build && npm run copy-assets",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -24,7 +29,13 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.9.5",
+    "@types/response-time": "^2.3.3",
+    "@types/serve-favicon": "^2.2.30",
     "eslint": "^5.14.1",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "tslint": "^5.13.0",
+    "typescript": "^3.3.3333"
   }
 }

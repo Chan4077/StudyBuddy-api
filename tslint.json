@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/tslint.json",
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "avoid-template"
+    ],
+    "no-console": false
+  },
+  "rulesDirectory": []
+}

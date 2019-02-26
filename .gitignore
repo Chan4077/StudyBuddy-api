@@ -88,3 +88,6 @@ typings/
 
 # Ignore service account key
 service-account-key.json
+
+# Dist folder auto created from tsc
+dist
