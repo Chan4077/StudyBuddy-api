@@ -22,7 +22,9 @@ Retrieves a user's details.
 
 Parameter | Description | Required
 ---|---|---
-`id` | The ID of the user to retrieve details from | Yes
+`email` | The email of the user to retrieve details from | No
+`id` | The ID of the user to retrieve details from | Yes (if no other parameters are specified)
+`phoneNumber`/`number` | The phone number of the user to retrieve details from | No
 
 ## `DELETE` /v1/user/:userId
 
@@ -44,7 +46,9 @@ Deletes a user from the list of authenticated users.
 
 Parameter | Description | Required
 ---|---|---
-`id` | The ID of the user to retrieve details from | Yes
+`email` | The email of the user to retrieve details from | No
+`id` | The ID of the user to retrieve details from | Yes (if no other parameters are specified)
+`phoneNumber`/`number` | The phone number of the user to retrieve details from | No
 
 ## `GET` /v1/uptime
 
