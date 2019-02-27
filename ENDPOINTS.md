@@ -6,7 +6,7 @@ Note: All API endpoints are prefixed with <https://studybuddy-api.herokuapp.com>
 
 ## `GET` /v1/user/:userId
 
-Retrieves a user's details.
+Retrieves a user's details from the list of authenticated users.
 
 ### Route parameters
 
@@ -16,7 +16,7 @@ Parameter | Description
 
 ## `GET` /v1/user
 
-Retrieves a user's details.
+Retrieves a user's details from the list of authenticated users.
 
 ### Query parameters
 
@@ -46,9 +46,9 @@ Deletes a user from the list of authenticated users.
 
 Parameter | Description | Required
 ---|---|---
-`email` | The email of the user to retrieve details from | No
-`id` | The ID of the user to retrieve details from | Yes (if no other parameters are specified)
-`phoneNumber`/`number` | The phone number of the user to retrieve details from | No
+`email` | The email of the user to delete | No
+`id` | The ID of the user to delete | Yes (if no other parameters are specified)
+`phoneNumber`/`number` | The phone number of the user to delete | No
 
 ## `GET` /v1/uptime
 
