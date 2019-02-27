@@ -4,12 +4,12 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc",
-    "copy-assets": "cp -r public dist",
-    "prestart": "npm run build && npm run copy-assets",
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node dist/app.js",
+    "watch-node": "nodemon dist/app.js",
+    "watch-ts": "tsc -w"
   },
   "repository": {
     "type": "git",
