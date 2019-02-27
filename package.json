@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "build-ts": "tsc",
-    "postinstall": "npm run build-ts",
+    "copy-public-assets": "cp -R public dist"
+    "postinstall": "npm run build-ts && npm run copy-public-assets",
     "start": "npm run serve",
     "serve": "node dist/app.js",
     "watch-node": "nodemon dist/app.js",
