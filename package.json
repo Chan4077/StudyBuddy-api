@@ -39,7 +39,7 @@
     "@types/serve-favicon": "^2.2.30",
     "eslint": "^5.14.1",
     "nodemon": "^1.18.10",
-    "tslint": "^5.13.0",
+    "tslint": "^5.13.1",
     "typescript": "^3.3.3333"
   }
 }
