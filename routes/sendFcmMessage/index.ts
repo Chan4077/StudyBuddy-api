@@ -1,52 +1,38 @@
 import { Router } from 'express';
-import { NOTIFICATION_REQUEST_VALID_KEYS, NOTIFICATION_REQUEST_REQUIRED_KEYS } from './interfaces';
-import { Utils } from '../utils';
 import { firebaseApp } from '../../firebase-app';
+import { messaging } from 'firebase-admin';
+import { Utils } from '../utils';
 
 export const sendFcmMessageRoutes = Router();
 
 sendFcmMessageRoutes.post('/', (req, res) => {
-  let invalidKeys = [];
-  let missingRequiredKeys = [];
-  console.log('Request body:\n', JSON.stringify(req.body, null, 2));
-  for (const key in req.body) {
-    if (req.body.hasOwnProperty(key)) {
-      if (!NOTIFICATION_REQUEST_VALID_KEYS.includes(key)) {
-        console.log('Invalid key:', key);
-        invalidKeys.push(key);
+  let missingKeys = true;
+  if (req.body) {
+    for (const validKey of ['token', 'topic', 'condition']) {
+      console.log('Current key:', validKey);
+      console.log('Does body have the key?', req.body.hasOwnProperty(validKey));
+      if (req.body.hasOwnProperty(validKey) && missingKeys) {
+        missingKeys = false;
       }
     }
   }
-  for (const key of NOTIFICATION_REQUEST_REQUIRED_KEYS) {
-    console.log(key);
-    if (!req.body.hasOwnProperty(key)) {
-      console.log('Missing required key:', key);
-      missingRequiredKeys.push(key);
-    }
-  }
-  if (missingRequiredKeys.length > 0) {
+  console.log('Missing keys?', missingKeys);
+  if (!missingKeys) {
+    firebaseApp.messaging()
+      .send(req.body)
+      .then(result => {
+        res.status(202)
+          .send({
+            id: result
+          });
+      })
+      .catch(error => {
+        Utils.sendJsonError(res, error);
+      });
+  } else {
     Utils.sendJsonError(res, {
       errorCode: 'missingRequiredKeys',
-      message: 'The request body specified does not contain the list of required keys (see the missingRequiredKeys array for more info on which keys are needed).',
-      missingRequiredKeys: missingRequiredKeys,
-      validKeys: NOTIFICATION_REQUEST_VALID_KEYS,
-      keys: Object.keys(req.body)
-    }, 400);
-  } else if (invalidKeys.length > 0) {
-    Utils.sendJsonError(res, {
-      errorCode: 'invalidKeys',
-      message: 'Invalid keys specified (see the invalidKeys array for more info on which keys specified are invalid).',
-      invalidKeys: invalidKeys,
-      validKeys: NOTIFICATION_REQUEST_VALID_KEYS,
-      keys: Object.keys(req.body)
-    }, 400);
-  } else {
-    firebaseApp.firestore()
-      .collection('notificationRequests')
-      .add(req.body)
-      .then(result => res.json({
-        id: result.id
-      }))
-      .catch(error => Utils.sendJsonError(res, error));
+      message: 'Please specify a valid registration token/topic/condition!'
+    });
   }
-});
+})

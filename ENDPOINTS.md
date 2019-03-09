@@ -4,7 +4,7 @@ This file contains the full list of endpoints that the API exposes.
 
 Note: All API endpoints are prefixed with <https://studybuddy-api.herokuapp.com>.
 
-## `POST` /v1/send-fcm-message, /v1/send-notification-request
+## `POST` /v1/send-notification-request
 
 Sends a notification request for a user or a topic.
 
@@ -13,6 +13,16 @@ Use the request body to specify the notification request.
 ### Body parameters
 
 See the [`NotificationRequest` interface](/INTERFACES.md#NotificationRequest) for all of the supported parameters.
+
+## `POST` /v1/send-fcm-message
+
+Sends a FCM message payload.
+
+Similar to `/v1/send-notification-request`, but sends directly instead of POSTing to Cloud Firestore to be handled by Cloud Functions.
+
+### Body parameters
+
+See the [Firebase docs](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#resource-message) for all of the supported parameters.
 
 ## `GET` /v1/user/:userId
 
