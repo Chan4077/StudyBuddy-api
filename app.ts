@@ -8,7 +8,8 @@ const app = express();
 
 // Sets the document title
 // See https://stackoverflow.com/a/54356269/6782707 for more info
-app.set('title', 'StudyBuddy API');
+// Currently not working
+// app.set('title', 'StudyBuddy API');
 
 // Adds the X-Response-Time header to indicate how long a request took
 // See https://github.com/expressjs/response-time for more info
@@ -21,7 +22,10 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // Note: Only works on versions 4.16.0 and up
 app.use(express.json());
 
+// Use routes exported from the routes folder
 app.use('/v1', routes);
+
+// Lastly, listen to the port set to the PORT environment variable, or 3000 if none exists
 app.listen(port, () => {
   console.log(`App is listening on port ${port}.`);
 });
