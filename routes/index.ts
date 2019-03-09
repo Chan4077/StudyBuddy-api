@@ -8,5 +8,5 @@ export const routes = Router();
 
 routes.use('/uptime', uptimeRoutes);
 routes.use('/user', userRoutes);
-routes.use(['/send-fcm-message'], sendFcmMessageRoutes);
-routes.use(['/send-notification-request'], sendNotificationRequestRoutes);
+routes.use('/send-fcm-message', sendFcmMessageRoutes);
+routes.use('/send-notification-request', sendNotificationRequestRoutes);
