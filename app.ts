@@ -17,6 +17,10 @@ app.use(responseTime());
 // Add a favicon
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+// Support parsing request body
+// Note: Only works on versions 4.16.0 and up
+app.use(express.json());
+
 app.use('/v1', routes);
 app.listen(port, () => {
   console.log(`App is listening on port ${port}.`);

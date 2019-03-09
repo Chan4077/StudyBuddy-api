@@ -4,6 +4,16 @@ This file contains the full list of endpoints that the API exposes.
 
 Note: All API endpoints are prefixed with <https://studybuddy-api.herokuapp.com>.
 
+## `POST` /v1/send-fcm-message, /v1/send-notification-request
+
+Sends a notification request for a user or a topic.
+
+Use the request body to specify the notification request.
+
+### Body parameters
+
+See the [`NotificationRequest` interface](/INTERFACES.md#NotificationRequest) for all of the supported parameters.
+
 ## `GET` /v1/user/:userId
 
 Retrieves a user's details from the list of authenticated users.
