@@ -37,7 +37,7 @@
     "@types/node": "^11.10.5",
     "@types/response-time": "^2.3.3",
     "@types/serve-favicon": "^2.2.30",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.1",
     "nodemon": "^1.18.10",
     "tslint": "^5.13.0",
     "typescript": "^3.3.3333"
