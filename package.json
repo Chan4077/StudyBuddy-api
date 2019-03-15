@@ -28,7 +28,7 @@
   "homepage": "https://github.com/Chan4077/StudyBuddy-api#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "firebase-admin": "^7.0.0",
+    "firebase-admin": "^7.1.0",
     "response-time": "^2.3.2",
     "serve-favicon": "^2.5.0"
   },
