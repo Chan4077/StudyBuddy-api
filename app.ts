@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import responseTime from 'response-time';
 import favicon from 'serve-favicon';
+import cors from 'cors';
 const port = process.env.PORT || 3000;
 import { routes } from './routes';
 const app = express();
@@ -14,6 +15,9 @@ const app = express();
 // Adds the X-Response-Time header to indicate how long a request took
 // See https://github.com/expressjs/response-time for more info
 app.use(responseTime());
+
+// Adds CORS headers
+app.use(cors());
 
 // Add a favicon
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
