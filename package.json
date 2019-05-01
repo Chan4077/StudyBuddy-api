@@ -40,7 +40,7 @@
     "@types/response-time": "^2.3.3",
     "@types/serve-favicon": "^2.2.30",
     "eslint": "^5.14.1",
-    "nodemon": "^1.18.10",
+    "nodemon": "^1.19.0",
     "tslint": "^5.15.0",
     "typescript": "^3.4.3"
   }
