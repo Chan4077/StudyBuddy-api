@@ -39,7 +39,7 @@
     "@types/node": "^12.12.14",
     "@types/response-time": "^2.3.4",
     "@types/serve-favicon": "^2.5.0",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "nodemon": "^1.19.4",
     "tslint": "^5.20.1",
     "typescript": "^3.7.3"
