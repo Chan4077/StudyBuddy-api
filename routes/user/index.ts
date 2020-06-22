@@ -28,7 +28,8 @@ userRoutes.route('/')
         .catch((error) => Utils.sendJsonError(res, error));
     } else {
       Utils.sendJsonError(res, {
-        message: 'Please specify a user ID, email or phone number!',
-      });
+        errorCode: 'missingRequiredParameter',
+        message: 'Please specify a user ID, email or phone number!'
+      }, 400);
     }
   });
